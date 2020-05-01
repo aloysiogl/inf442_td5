@@ -8,3 +8,7 @@ estimate_gaussian
 test_gaussian
 estimate_knn
 test_knn
+.fuse_hidden00001c4100000001
+meanshift
+out
+*_meanshift
