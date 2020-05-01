@@ -4,4 +4,14 @@
 #include "cloud.hpp"
 #include "kernel.hpp"
 
-// TODO
+class knn : public kernel
+{
+private:
+    int k;
+    double V;
+
+public:
+    knn(cloud *data_, int k_, double V_);
+
+    double density(point &p);
+};

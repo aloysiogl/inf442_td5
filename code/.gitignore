@@ -6,3 +6,5 @@ test_flat
 estimate_flat
 estimate_gaussian
 test_gaussian
+estimate_knn
+test_knn
