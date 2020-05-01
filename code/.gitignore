@@ -3,3 +3,6 @@
 test_radial
 display
 test_flat
+estimate_flat
+estimate_gaussian
+test_gaussian
