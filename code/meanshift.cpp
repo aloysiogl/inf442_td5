@@ -18,20 +18,18 @@ double dist2(vector<double>& v1, vector<double>& v2){
 }
 
 void updateKnn(vector<vector<int>>& knn, vector<vector<double>>& points, int k, int p, int i){
-    vector<int>& kpoints = knn[p];
-
     if (p == i) return;
 
-    if (kpoints.size() < k)
-        kpoints.push_back(i);
+    if (knn[p].size() < k)
+        knn[p].push_back(i);
     else {
-        std::sort(kpoints.begin(), kpoints.end(), [&](int& a, int& b){
+        std::sort(knn[p].begin(), knn[p].end(), [&](int& a, int& b){
             return dist2(points[p], points[a]) > dist2(points[p], points[b]);
         });
-        if (dist2(points[p], points[i]) < dist2(points[p], points[kpoints[0]]))
-            kpoints[0] = i;
+        if (dist2(points[p], points[i]) < dist2(points[p], points[knn[p][0]]))
+            knn[p][0] = i;
     }
-    std::sort(kpoints.begin(), kpoints.end(), [&](int& a, int& b){
+    std::sort(knn[p].begin(), knn[p].end(), [&](int& a, int& b){
         return dist2(points[p], points[a]) > dist2(points[p], points[b]);
     });
 }
