@@ -23,13 +23,13 @@ void updateKnn(vector<vector<int>>& knn, vector<vector<double>>& points, int k, 
     if (knn[p].size() < k)
         knn[p].push_back(i);
     else {
-        std::sort(knn[p].begin(), knn[p].end(), [&](int& a, int& b){
+        std::sort(knn[p].begin(), knn[p].end(), [&](int const & a, int const & b){
             return dist2(points[p], points[a]) > dist2(points[p], points[b]);
         });
         if (dist2(points[p], points[i]) < dist2(points[p], points[knn[p][0]]))
             knn[p][0] = i;
     }
-    std::sort(knn[p].begin(), knn[p].end(), [&](int& a, int& b){
+    std::sort(knn[p].begin(), knn[p].end(), [&](int const & a, int const & b){
         return dist2(points[p], points[a]) > dist2(points[p], points[b]);
     });
 }
