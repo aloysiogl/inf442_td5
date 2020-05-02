@@ -18,14 +18,14 @@ double knn::density(point &p) {
         if (kpoints.size() < k)
             kpoints.push_back(i);
         else {
-            std::sort(kpoints.begin(), kpoints.end(), [&](int& a, int& b){
+            std::sort(kpoints.begin(), kpoints.end(), [&](int const& a, int const& b){
                 return p.dist(data->get_point(a)) > p.dist(data->get_point(b));
             });
             if (p.dist(data->get_point(i)) < p.dist(data->get_point(kpoints[0])))
                 kpoints[0] = i;
         }
     }
-    std::sort(kpoints.begin(), kpoints.end(), [&](int& a, int& b){
+    std::sort(kpoints.begin(), kpoints.end(), [&](int const & a, int const & b){
         return p.dist(data->get_point(a)) > p.dist(data->get_point(b));
     });
 
