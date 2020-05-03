@@ -18,8 +18,6 @@ double dist2(vector<double>& v1, vector<double>& v2){
 }
 
 void updateKnn(vector<vector<int>>& knn, vector<vector<double>>& points, int k, int p, int i){
-    if (p == i) return;
-
     if (knn[p].size() < k)
         knn[p].push_back(i);
     else {
@@ -78,11 +76,12 @@ int main (int argc, char **argv)
         std::cout << percent << " %\n";
 
         // Vectors of Knn
-        vector<vector<int>> knn(points.size(), vector<int>(k));
+        vector<vector<int>> knn(points.size(), vector<int>());
 
         for (int i = 0; i < points.size(); ++i){
             for (int j = i; j < points.size(); ++j){
-                updateKnn(knn, points, k, i, j);
+                if (j != i)
+                    updateKnn(knn, points, k, i, j);
                 updateKnn(knn, points, k, j, i);
             }
         }

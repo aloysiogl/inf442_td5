@@ -12,3 +12,7 @@ test_knn
 meanshift
 out
 *_meanshift
+pyout.xyz
+galaxies.xyz_meanshift.xyz
+galaxies.xyz_meanshift2.xyz
+galaxies.xyz_meanshift3.xyz
